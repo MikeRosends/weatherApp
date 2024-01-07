@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whaether App</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/32ae511efc.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="weatherApp.js"></script>
 </head>
-<body>
-    
 
-    <div class="card"></div>
-    <div class="se">
-        <input type="text" placeholder="Enter City Name" spellcheck="false">
-        <button><img src="img/search.png"></button>
+<body>
+    <div class="content">
+        <div id="card">
+            <div class="input">
+                <input id="input" type="text" placeholder="Enter city name" spellcheck="false">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="info"></div>
+        </div>
     </div>
 </body>
+
 </html>

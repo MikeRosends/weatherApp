@@ -1,20 +1,62 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
-}
 body {
-    background: #222;
+    background-color: rgb(34, 34, 34);
+    margin: 0px;
+    padding: 0px;
 }
 
-.card{
-    width: 90%;
-    max-width: 470px;
-    background: linear-gradient(135deg, #00feba, #5b548a);
-    color: #fff;
-    margin: 100px auto 0;
-    border-radius: 40px 35px;
-    padding: 40px 35px;
-    text-align: center;
+.content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+#card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 500px;
+    border-radius: 50px;
+    background: linear-gradient(145deg, #0a7cb5, #abd3ec);
+}
+
+.city-name{
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    text-transform: capitalize;
+}
+
+.input{
+    width: 70%;
+    margin-top: 10%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#input{
+    height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    border-radius: 10px;
+    border: none;
+}
+
+.fa-solid{
+    color: white;
+}
+
+.weather-icon{
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 140px;
+    height: 140px;
+    background-image: url("img/clear.png");
+}
+
+
+
