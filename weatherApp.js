@@ -1,14 +1,14 @@
 class weatherApp {
-    constructor(city, key, temp) {
+    constructor(city, key) {
         this.city = city;
         this.key = key;
-        this.temp = temp;
+        this.data = null;
     }
 
     getData = async function () {
-        const results = await fetch (`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`);
-        const data = await results.json();
-        console.log(data);
+        const results = await fetch (`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`);
+        this.data = await results.json();
+        console.log(this.data);
         this.createCard();
     }
 
@@ -17,8 +17,8 @@ class weatherApp {
 
         const cityName = `<h1 class="city-name">${city}</h1>`;
         const weatherIcon = `<div class="weather-icon"></div>`;
-        const temp = `<div class="temp">${this.temp}</div>`;
-
+        const temp = `<div class="temp">${(this.data.main.temp).toFixed(1)}°C</div>`;
+        
         
         const infoDiv = $(".info");
 
@@ -33,8 +33,7 @@ class weatherApp {
 
 city = "Lisboa";
 key = "0d94b542625a860710d8905c5659e374";
-temp = "30ºC"
 
-weatherApp1 = new weatherApp(city, key, temp)
+weatherApp1 = new weatherApp(city, key)
 weatherApp1.getData();
 
