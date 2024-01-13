@@ -12,39 +12,21 @@ class WeatherApp {
 
     createCard(data) {
 
-        const cardDiv = $("#card");  
-        const weatherIcon = `<div class="weather-icon"></div>`;
-        const temp = `<div class="temp">
-            <h1 id="temp">${(data.main.temp).toFixed(1)}°C</h1>
-            </div>`;
+        const temp = $("#temp");
+        temp.text((data.main.temp).toFixed(1) + "°C")
         
 
-        const cityNameDiv = $(".city-name");
-        const cityName = `<h1 id="city-name">${(data.name)}</h1>`
+        const cityName = $("#city-name");
+        cityName.text(data.name);
 
         
-        const infoDiv = $(".info")
-        const humidity = `<div class="humidity-wind">
-        <img class="humidity-wind-image" src="img/humidity.png">
-        <div class="wind-humidity-info">
-            <p class="humidity-wind-details">Humidity</p>
-            <p class="humidity-wind-text">${(data.main.humidity)}%</p>
-        </div>
-        </div>`
+        const humidity = $(".humidity-wind-text");
+        humidity.text((data.main.humidity) + "%");
        
 
 
-        const wind = `<div class="humidity-wind">
-                <img class="humidity-wind-image" src="img/wind.png">
-                <div class="wind-humidity-info">
-                    <p class="humidity-wind-details">Wind Speed</p>
-                    <p class="humidity-wind-text">${(data.wind.speed)} km/h</p>
-                </div>
-                </div>`
-     
-        cityNameDiv.append(cityName)
-        infoDiv.append(humidity, wind);
-        cardDiv.append(weatherIcon, temp, infoDiv);
+        const wind = $(".humidity-wind-text");
+        wind.text((data.wind.speed) + " km/h");
     }
 }
 
