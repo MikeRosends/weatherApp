@@ -7,6 +7,7 @@ class WeatherApp {
     getData = async function (city) {
         const results = await fetch (`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.key}&units=metric`);
         const output = await results.json();
+        console.log(output);
         this.createCard(output);
     }
 
@@ -34,6 +35,11 @@ function bindSearchButton(weatherAppObj) {
     $(".fa-solid").click(function() {
         const inputCity = $("#input").val();
         weatherAppObj.getData(inputCity);
+    });
+    $("#input").keyup(function(event) {
+        if (event.keyCode === 13) {
+            $(".fa-solid").click();
+        }
     });
 }
 
