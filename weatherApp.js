@@ -1,39 +1,66 @@
-class weatherApp {
-    constructor(city, key) {
-        this.city = city;
+class WeatherApp {
+    constructor(key) {
         this.key = key;
-        this.data = null;
     }
 
-    getData = async function () {
-        const results = await fetch (`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`);
-        this.data = await results.json();
-        console.log(this.data);
-        this.createCard();
+
+    getData = async function (city) {
+        const results = await fetch (`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.key}&units=metric`);
+        const output = await results.json();
+        this.createCard(output);
     }
 
-    createCard() {
-        const cardDiv = $("#card");
+    createCard(data) {
 
-        const cityName = `<h1 class="city-name">${city}</h1>`;
+        const cardDiv = $("#card");  
         const weatherIcon = `<div class="weather-icon"></div>`;
-        const temp = `<div class="temp">${(this.data.main.temp).toFixed(1)}°C</div>`;
+        const temp = `<div class="temp">
+            <h1 id="temp">${(data.main.temp).toFixed(1)}°C</h1>
+            </div>`;
         
-        
-        const infoDiv = $(".info");
 
-        const humidity = `<div class="humidity"></div>`
-        const wind = `<div class="wind"></div>`
+        const cityNameDiv = $(".city-name");
+        const cityName = `<h1 id="city-name">${(data.name)}</h1>`
+
         
-        
-        cardDiv.append(cityName, weatherIcon, temp, infoDiv);
+        const infoDiv = $(".info")
+        const humidity = `<div class="humidity-wind">
+        <img class="humidity-wind-image" src="img/humidity.png">
+        <div class="wind-humidity-info">
+            <p class="humidity-wind-details">Humidity</p>
+            <p class="humidity-wind-text">${(data.main.humidity)}%</p>
+        </div>
+        </div>`
+       
+
+
+        const wind = `<div class="humidity-wind">
+                <img class="humidity-wind-image" src="img/wind.png">
+                <div class="wind-humidity-info">
+                    <p class="humidity-wind-details">Wind Speed</p>
+                    <p class="humidity-wind-text">${(data.wind.speed)} km/h</p>
+                </div>
+                </div>`
+     
+        cityNameDiv.append(cityName)
         infoDiv.append(humidity, wind);
+        cardDiv.append(weatherIcon, temp, infoDiv);
     }
 }
 
-city = "Lisboa";
-key = "0d94b542625a860710d8905c5659e374";
+function bindSearchButton(weatherAppObj) {
+    $(".fa-solid").click(function() {
+        const inputCity = $("#input").val();
+        weatherAppObj.getData(inputCity);
+    });
+}
 
-weatherApp1 = new weatherApp(city, key)
-weatherApp1.getData();
 
+const SECRET_KEY = "0d94b542625a860710d8905c5659e374";
+
+const weatherAppObj = new WeatherApp(SECRET_KEY)
+
+
+$(window).bind("load", function() {
+    bindSearchButton(weatherAppObj);
+});
