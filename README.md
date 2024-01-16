@@ -20,6 +20,8 @@ https://home.openweathermap.org/users/sign_up
 Then you will have to generate a key for yourself and insert your Key into the bottom of the weatherApp.js
 
 To get your Key go here:
+
+This is what the app looks like:
 https://home.openweathermap.org/api_keys
 
 
