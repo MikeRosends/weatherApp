@@ -72,8 +72,8 @@ function bindSearchButton(weatherAppObj) {
     });
 }
 
-
-const SECRET_KEY = "0d94b542625a860710d8905c5659e374";
+// YOUR KEY GOES HERE !!
+const SECRET_KEY = "";
 
 const weatherAppObj = new WeatherApp(SECRET_KEY)
 
