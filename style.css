@@ -65,11 +65,9 @@ body {
 }
 
 .weather-icon{
-    background-size: contain;
-    background-repeat: no-repeat;
+    display: flex;
     width: 50%;
     height: 30%;
-    background-image: url("img/clear.png");
 }
 
 .temp{
@@ -86,7 +84,7 @@ body {
 
 #temp{
     margin: 0px;
-    font-size: 11vw;
+    font-size: 400%;
 }
 
 .info{
@@ -118,7 +116,13 @@ body {
     align-items: center;
 }
 
-.humidity-wind-text{
+.humidity-text{
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 0px;
+}
+
+.wind-text{
     color: white;
     font-family:Arial, Helvetica, sans-serif;
     margin: 0px;
