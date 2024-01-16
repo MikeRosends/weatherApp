@@ -21,3 +21,7 @@ Then you will have to generate a key for yourself and insert your Key into the b
 
 To get your Key go here:
 https://home.openweathermap.org/api_keys
+
+
+
+![image](https://github.com/MikeRosends/weatherApp/assets/140163593/915d7bac-39bc-4091-bf29-5ae0ece5fa25)
